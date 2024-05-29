@@ -9,7 +9,7 @@ int in2=7;
 int enB=3; 
 int in3=4; 
 int in4=5;
-long sure, uzaklik;
+long time, distance;
 void setup() {
 
     pinMode(echoPin, INPUT);
@@ -30,18 +30,23 @@ void loop() {
    analogWrite(enA ,255);
    analogWrite(enB ,255);
 
-  digitalWrite(trigPin, LOW); //sensör pasif hale getirildi
+  digitalWrite(trigPin, LOW); //sensor deactivated
   delayMicroseconds(5);
-  digitalWrite(trigPin, HIGH); //Sensore ses dalgasının üretmesi için emir verildi
+  digitalWrite(trigPin, HIGH);   //Sensore was ordered to generate the sound wave
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW); //Yeni dalgaların üretilmemesi için trig pini LOW konumuna getirildi
-  sure = pulseIn(echoPin, HIGH); //ses dalgasının geri dönmesi için geçen sure ölçülüyor
-  uzaklik = sure / 29.1 / 2; //ölçülen süre uzaklığa çevriliyor
-  Serial.println("uzaklik");
-  Serial.println(uzaklik);
+  digitalWrite(trigPin, LOW); //The trig pin is set to LOW to prevent new waves from being generate
+  time = pulseIn(echoPin, HIGH);//measuring the time it takes for the sound wave to return 
+                                
+  Serial.println("distance");
+  Serial.println(distance);
 
 
-      if (uzaklik < 45 && uzaklik > 1) 
+
+ 
+
+
+
+      if (distance < 45 && distance > 1) 
   { stop();
     delay(500);
     back();  
