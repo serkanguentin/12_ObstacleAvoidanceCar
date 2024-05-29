@@ -30,12 +30,12 @@ void loop() {
    analogWrite(enA ,255);
    analogWrite(enB ,255);
 
-  digitalWrite(trigPin, LOW); //sensor deactivated
+  digitalWrite(trigPin, LOW);    //sensor deactivated
   delayMicroseconds(5);
   digitalWrite(trigPin, HIGH);   //Sensore was ordered to generate the sound wave
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW); //The trig pin is set to LOW to prevent new waves from being generate
-  time = pulseIn(echoPin, HIGH);//measuring the time it takes for the sound wave to return 
+  digitalWrite(trigPin, LOW);    //The trig pin is set to LOW to prevent new waves from being generate
+  time = pulseIn(echoPin, HIGH); //measuring the time it takes for the sound wave to return 
                                 
   Serial.println("distance");
   Serial.println(distance);
